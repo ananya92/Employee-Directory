@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.Select-option {
+  padding-left: 2em;
+}
+.Select-option.is-disabled {
+  cursor: default;
+  padding-left: 1em;
+  font-weight: bold;
+  border-top: 2px solid lightgray;
+  border-bottom: 2px solid lightgray;
+}
