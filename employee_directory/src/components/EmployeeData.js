@@ -1,15 +1,9 @@
-import React, { Component } from "react";
+import React, { useContext } from "react";
 import Table from 'react-bootstrap/Table';
-import API from "../utils/API";
+import EmployeeListContext from "../utils/EmployeeListContext";
 
-class EmployeeData extends Component {
-    componentDidMount() {
-        API.getEmployees().then(result => this.setState({ employees: result.data }));
-    }
-    state = {
-        employees: []
-    };
-    render () {
+function EmployeeData() {
+    const employeeState = useContext(EmployeeListContext);
     return ( 
         <Table striped bordered hover responsive>
             <thead>
@@ -24,7 +18,7 @@ class EmployeeData extends Component {
                 </tr>
             </thead>
             <tbody className="empData">
-            {this.state.employees.map((employee, index) => (
+            {employeeState.employees.map((employee, index) => (
                 <tr>
                     <td>{index + 1}</td>
                     <td>{employee.name}</td>
@@ -38,7 +32,6 @@ class EmployeeData extends Component {
             </tbody>
         </Table>
     )
-    }
 }
 
 export default EmployeeData;
