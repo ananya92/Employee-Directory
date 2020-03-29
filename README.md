@@ -33,3 +33,4 @@ An employee or manager would benefit greatly from being able to view non-sensiti
 
 ## Deployed Application URL 
 
+https://employee-directory-mern.herokuapp.com/
