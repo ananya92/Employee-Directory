@@ -30,7 +30,22 @@ const reducer = (state, action) => {
                 return { ...state, currentEmployees: state.initialEmployees }
             }
         case "sort":
-            return { ...state, currentEmployees: state.initialEmployees }
+            if(action.data !== null && action.data.value !== null ) {
+                let sortedEmployees = [];
+                // Sorting the employees based on the employee name, department name and designation
+                switch(action.data.value) {
+                    case "Employee Name":
+                        sortedEmployees = state.currentEmployees.sort((a, b) => (a.name > b.name) ? 1 : -1);
+                        return { ...state, currentEmployees: sortedEmployees }
+                    case "Department Name":
+                        sortedEmployees = state.currentEmployees.sort((a, b) => (a.department > b.department) ? 1 : -1);
+                        return { ...state, currentEmployees: sortedEmployees }
+                    case "Designation":
+                        sortedEmployees = state.currentEmployees.sort((a, b) => (a.designation > b.designation) ? 1 : -1);
+                        return { ...state, currentEmployees: sortedEmployees }
+                }
+            }
+            return { ...state, currentEmployees: state.currentEmployees }
         default:
             throw new Error(`Invalid action type: ${action.type}`);
     }
