@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import "react-select/dist/react-select.css";
+import { useEmployeeContext } from "../utils/GlobalState";
 
-class DropdownFilter extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      multiValue: [],
+function DropdownFilter() {
+  const [_, dispatch] = useEmployeeContext();
+  const [filterState, setFilterState] = useState({
+    multiValue: [],
       filterOptions: [
         {label: "Department", value: "Department", disabled: true},
         {label: "Information Technology", value: "Information Technology"},
@@ -19,33 +19,32 @@ class DropdownFilter extends React.Component {
         {label: "HR Specialist", value: "HR Specialist"},
         {label: "Accountant", value: "Accountant"}
       ]
-    };
+  });
 
-    this.handleMultiChange = this.handleMultiChange.bind(this);
-  }
+  useEffect(() => {
+    dispatch({type: "filter", data: filterState.multiValue});
+  }, [filterState]);
 
-  handleMultiChange(option) {
-    this.setState(state => {
-      return {
+  function handleMultiChange(option) {
+    setFilterState (state => {
+      return {...filterState,
         multiValue: option
       };
     });
   }
 
-  render() {
-    return (
-      <div>
+  return (
+    <div>
         <Select
           name="filters"
           placeholder="Filter by"
-          value={this.state.multiValue}
-          options={this.state.filterOptions}
-          onChange={this.handleMultiChange}
+          value={filterState.multiValue}
+          options={filterState.filterOptions}
+          onChange={handleMultiChange}
           multi
         />
-      </div>
-    );
+    </div>
+  );
   }
-}
 
 export default DropdownFilter;
