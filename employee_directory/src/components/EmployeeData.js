@@ -1,9 +1,16 @@
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
 import Table from 'react-bootstrap/Table';
-import EmployeeListContext from "../utils/EmployeeListContext";
+import { useEmployeeContext } from "../utils/GlobalState";
+import API from "../utils/API";
 
-function EmployeeData() {
-    const employeeState = useContext(EmployeeListContext);
+function EmployeeData(props) {
+    const [state, dispatch] = useEmployeeContext();
+    // Loading the employees from the database when the page loads for the first time.
+    useEffect(() => {
+        API.getEmployees().then((res) => {
+        dispatch({type:"init", data: res.data });
+        });
+    }, []);
     return ( 
         <Table striped bordered hover responsive>
             <thead>
@@ -18,7 +25,7 @@ function EmployeeData() {
                 </tr>
             </thead>
             <tbody className="empData">
-            {employeeState.employees.map((employee, index) => (
+            {state.currentEmployees.map((employee, index) => (
                 <tr>
                     <td>{index + 1}</td>
                     <td>{employee.name}</td>
