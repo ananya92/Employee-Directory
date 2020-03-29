@@ -25,7 +25,7 @@ const empSeed = [
     employeeID: 3378890,
     department: "Information Technology",
     designation: "Software Engineer",
-    email: "stuart.lakes@hpe.com",
+    email: "andrea.johnson@hpe.com",
     phone: 439209448
   },
   {
@@ -49,7 +49,7 @@ const empSeed = [
     employeeID: 4456328,
     department: "Information Technology",
     designation: "Software Engineer",
-    email: "stuart.lakes@hpe.com",
+    email: "mary.jones@hpe.com",
     phone: 434908338
   },
   {

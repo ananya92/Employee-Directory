@@ -21,10 +21,12 @@ function DropdownFilter() {
       ]
   });
 
+  // using useEffect hook to observe the state of filterState and call the dispatch function with filter action to update the store and apply the filter to the store
   useEffect(() => {
     dispatch({type: "filter", data: filterState.multiValue});
   }, [filterState]);
 
+  // handleChange function to update the filterState when value from the dropdown is selected
   function handleMultiChange(option) {
     setFilterState (state => {
       return {...filterState,
