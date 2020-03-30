@@ -1,6 +1,6 @@
 {
   "name": "employee_directory",
-  "homepage": ".",
+  "homepage": "https://employee-directory-mern.herokuapp.com",
   "version": "0.1.1",
   "private": true,
   "proxy": "http://localhost:3001/",
