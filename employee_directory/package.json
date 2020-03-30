@@ -1,5 +1,6 @@
 {
   "name": "employee_directory",
+  "homepage": ".",
   "version": "0.1.1",
   "private": true,
   "proxy": "http://localhost:3001/",
