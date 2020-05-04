@@ -34,3 +34,6 @@ An employee or manager would benefit greatly from being able to view non-sensiti
 ## Deployed Application URL 
 
 https://employee-directory-mern.herokuapp.com/
+
+## Application Screenshot
+![Project Snapshot](https://github.com/ananya92/My-Portfolio/blob/master/src/components/projects/img/pr4_1.JPG)
